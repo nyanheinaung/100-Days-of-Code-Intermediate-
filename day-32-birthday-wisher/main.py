@@ -13,10 +13,11 @@ import smtplib
 import random
 import pandas
 
+# The following code must be changed to actual day, like this
+# today = dt.datetime.now()
 byear = 2020
 bmonth = 9
 bday = 25
-
 today = dt.datetime(year=byear, month=bmonth, day=bday)
 
 def wish_birthday(name, email):
