@@ -13,12 +13,15 @@ class QuizInterface:
         self.score_label.grid(row=0, column=1)
 
         self.canvas = tk.Canvas(height=250, width=300, bg="white")
-        self.canvas.create_text((125,150), text="Question Text", font=FONT)
-        self.canvas.grid(row=1, column=0, columnspan=2)
+        self.canvas.create_text((150, 125), text="Question Text", font=FONT, fill=THEME_COLOR)
+        self.canvas.grid(row=1, column=0, columnspan=2, pady=50)
 
-        true_img = tk.PhotoImage("images/true.png")
+        true_img = tk.PhotoImage(file="images/true.png")
+        self.true_button = tk.Button(image=true_img, highlightthickness=0)
+        self.true_button.grid(row=2, column=1)
 
-        false_img = tk.PhotoImage("images/false.png")
-
+        false_img = tk.PhotoImage(file="images/false.png")
+        self.false_button = tk.Button(image=false_img, highlightthickness=0)
+        self.false_button.grid(row=2, column=0)
 
         self.window.mainloop()
