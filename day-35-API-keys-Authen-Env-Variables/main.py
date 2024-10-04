@@ -1,6 +1,9 @@
 import requests
+from twilio.rest import Client
 
-api_key = "14a9183a2be8704af5163d6ce6a16588"
+account_sid = "" # Use "Twilio" account sid here
+auth_token = "" # Use "Twilio" auth_token here
+api_key = "" # Use "Openweather" api key here
 LATITUDE = 34.710722
 LONGITUDE = 135.529917
 
@@ -24,5 +27,11 @@ for hour_data in weather_data:
         need_umbrella = True
 
 if need_umbrella:
-    print("Bring an umbrella!")
+    client = Client(account_sid, auth_token)
+    message = client.messages.create(
+        body="It's going to rain. You'd better bring an ☂️!",
+        from_="+12093085412",
+        to="+818041584210"
+    )
+    print(message.status)
 
